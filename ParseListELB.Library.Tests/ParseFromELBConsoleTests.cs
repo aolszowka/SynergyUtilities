@@ -8,12 +8,9 @@ namespace ParseListELB
 {
     using System;
     using System.Collections;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using NUnit.Framework;
-    using ParseListELB.DOM;
+    using ParseListELB.Library;
+    using ParseListELB.Library.DOM;
 
     /// <summary>
     /// Unit Test Fixture for the <see cref="ParseFromELBConsole"/> class.

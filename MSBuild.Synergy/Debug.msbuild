@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--************************************************************************-->
+<!--* Debug.msbuild                                                        *-->
+<!--*   This script serves as a debugging ground for the Custom Tasks.     *-->
+<!--************************************************************************-->
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="BuildAll">
+  <Import Project="MSBuild.Synergy.tasks" />
+
+  <PropertyGroup>
+    <BuildOutputDirectory>\\cu7dev\F\TIMS\7x\FeatureBranches\BoundsChecked\Development\104658\exe</BuildOutputDirectory>
+    <ListELBStagingArea>S:\Temp\ELBListing</ListELBStagingArea>
+    <ListELBOutputFolder>$(ListELBStagingArea)\ListELBOutput</ListELBOutputFolder>
+    <ListELBXMLOutputFolder>$(ListELBStagingArea)\ListELBXMLOutput</ListELBXMLOutputFolder>
+  </PropertyGroup>
+
+  <!--**********************************************************************-->
+  <!--**********************************************************************-->
+  <Target Name="BuildAll" DependsOnTargets="CleanListELBFolders;CreateListELBFolders">
+    <!--First get a listing of all the ELBs we're going to Look at and ListELB on them-->
+    <ItemGroup>
+      <TargetELBs Include="$(BuildOutputDirectory)\**\*.elb"
+                  Exclude="$(BuildOutputDirectory)\**\XFPrintX64.elb"/>
+    </ItemGroup>
+    <ListElb ELB="%(TargetELBs.Identity)"
+             OutputFile="$(ListELBOutputFolder)\%(TargetELBs.FileName)%(TargetELBs.Extension).txt"
+             ToolPath="C:\Program Files (x86)\Synergex\SynergyDE\dbl\bin"/>
+
+    <!--Next convert the output of ListELB to XML so we can parse it-->
+    <Message Text="Converting to XML..."/>
+    <ItemGroup>
+      <TargetELBDescriptions Include="$(ListELBOutputFolder)\*.txt"/>
+    </ItemGroup>
+    <ConvertListElbOutputToXML ListElbOutputFile="%(TargetELBDescriptions.Identity)"
+                               OutputFile="$(ListELBXMLOutputFolder)\%(TargetELBDescriptions.FileName).xml"/>
+
+    <!--Finally parse the ListELB XML Output to find duplicates-->
+    <Message Text="Looking for duplicates..."/>
+    <ItemGroup>
+      <TargetELBXMLDescriptions Include="$(ListELBXMLOutputFolder)\*.xml"/>
+    </ItemGroup>
+    <FindDuplicateMethodsInELB ListElbXmlDescriptions="@(TargetELBXMLDescriptions)"
+                               ErrorOnDuplicates="false">
+      <Output TaskParameter="Duplicates" ItemName="DuplicateMethods"/>
+    </FindDuplicateMethodsInELB>
+
+    <!--Output these as warnings-->
+    <Warning Text="%(DuplicateMethods.Identity)"/>
+  </Target>
+
+  <!--**********************************************************************-->
+  <!--**********************************************************************-->
+  <Target Name="CleanListELBFolders">
+    <RemoveDir Directories="$(ListELBStagingArea)"/>
+  </Target>
+
+  <!--**********************************************************************-->
+  <!--**********************************************************************-->
+  <Target Name="CreateListELBFolders">
+    <MakeDir Directories="$(ListELBStagingArea);$(ListELBOutputFolder);$(ListELBXMLOutputFolder)"/>
+  </Target>
+</Project>

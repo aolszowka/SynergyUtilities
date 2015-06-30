@@ -10,6 +10,7 @@ namespace ParseListELB
     using System.Collections;
     using System.Collections.Generic;
     using NUnit.Framework;
+    using ParseListELB.Library;
 
     /// <summary>
     /// Unit tests for the <see cref="StringExtensionMethods"/> extension method class.

@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A759835E-5CA1-40CB-86FA-B5A419FE7360}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{4355D273-B629-43D3-A90F-D734CF9182C7}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ParseListELB</RootNamespace>
-    <AssemblyName>ParseListELB</AssemblyName>
+    <RootNamespace>ParseListELB.Library</RootNamespace>
+    <AssemblyName>ParseListELB.Library</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -32,7 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="nunit.framework, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -42,17 +39,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="DOM\ELB.cs" />
+    <Compile Include="DOM\ExternalReference.cs" />
+    <Compile Include="DOM\GlobalSymbol.cs" />
+    <Compile Include="DOM\LinkedELB.cs" />
+    <Compile Include="DOM\MethodSubroutineFunction.cs" />
+    <Compile Include="Parser\ParseFromELBConsole.cs" />
+    <Compile Include="Parser\SectionType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ParseListELB.Library\ParseListELB.Library.csproj">
-      <Project>{4355d273-b629-43d3-a90f-d734cf9182c7}</Project>
-      <Name>ParseListELB.Library</Name>
-    </ProjectReference>
+    <Compile Include="Utilities\StringExtensionMethods.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

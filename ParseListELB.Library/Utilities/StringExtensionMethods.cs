@@ -4,7 +4,7 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace ParseListELB
+namespace ParseListELB.Library
 {
     using System;
     using System.Collections.Generic;

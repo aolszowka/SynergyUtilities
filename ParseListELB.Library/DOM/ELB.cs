@@ -4,7 +4,7 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace ParseListELB.DOM
+namespace ParseListELB.Library.DOM
 {
     using System.Collections.Generic;
     using System.Xml.Serialization;

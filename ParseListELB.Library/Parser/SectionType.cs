@@ -1,16 +1,15 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="LinkedELB.cs" company="Ace Olszowka">
+// <copyright file="SectionType.cs" company="Ace Olszowka">
 // Copyright (c) Ace Olszowka 2015. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace ParseListELB.DOM
+namespace ParseListELB.Library
 {
-    using System.Xml.Serialization;
-
-    public class LinkedELB
+    public enum SectionType
     {
-        [XmlAttribute]
-        public string Name { get; set; }
+        None,
+        Method,
+        SubroutineFunction
     }
 }

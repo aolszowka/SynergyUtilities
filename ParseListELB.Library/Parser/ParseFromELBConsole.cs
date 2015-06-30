@@ -4,17 +4,17 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace ParseListELB
+namespace ParseListELB.Library
 {
     using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
-    using ParseListELB.DOM;
+    using ParseListELB.Library.DOM;
 
     // This whole thing is a giant hack, we should really get proper
     // support to extract the contents of this file
-    public class ParseFromELBConsole
+    public static class ParseFromELBConsole
     {
         public static ELB Parse(string filePath)
         {
@@ -221,12 +221,5 @@ namespace ParseListELB
         {
             return new LinkedELB() { Name = input.Trim() };
         }
-    }
-
-    public enum SectionType
-    {
-        None,
-        Method,
-        SubroutineFunction
     }
 }

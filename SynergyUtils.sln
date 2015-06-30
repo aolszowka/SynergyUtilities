@@ -5,6 +5,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParseListELB", "ParseListEL
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindDuplicateMethods", "FindDuplicateMethods\FindDuplicateMethods.csproj", "{A6C53521-A059-4A23-88AC-448CF9BE4E2B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSBuild.Synergy", "MSBuild.Synergy\MSBuild.Synergy.csproj", "{ACBBFDB4-1F68-4DA2-8738-38EDE8EA4C14}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParseListELB.Library", "ParseListELB.Library\ParseListELB.Library.csproj", "{4355D273-B629-43D3-A90F-D734CF9182C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParseListELB.Library.Tests", "ParseListELB.Library.Tests\ParseListELB.Library.Tests.csproj", "{E4FE2272-3C6C-4F66-9A70-8CBE0130B4A1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +25,18 @@ Global
 		{A6C53521-A059-4A23-88AC-448CF9BE4E2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6C53521-A059-4A23-88AC-448CF9BE4E2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6C53521-A059-4A23-88AC-448CF9BE4E2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACBBFDB4-1F68-4DA2-8738-38EDE8EA4C14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACBBFDB4-1F68-4DA2-8738-38EDE8EA4C14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACBBFDB4-1F68-4DA2-8738-38EDE8EA4C14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACBBFDB4-1F68-4DA2-8738-38EDE8EA4C14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4355D273-B629-43D3-A90F-D734CF9182C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4355D273-B629-43D3-A90F-D734CF9182C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4355D273-B629-43D3-A90F-D734CF9182C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4355D273-B629-43D3-A90F-D734CF9182C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4FE2272-3C6C-4F66-9A70-8CBE0130B4A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4FE2272-3C6C-4F66-9A70-8CBE0130B4A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4FE2272-3C6C-4F66-9A70-8CBE0130B4A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4FE2272-3C6C-4F66-9A70-8CBE0130B4A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -10,7 +10,8 @@ namespace ParseListELB
     using System.IO;
     using System.Threading.Tasks;
     using System.Xml.Serialization;
-    using ParseListELB.DOM;
+    using ParseListELB.Library;
+    using ParseListELB.Library.DOM;
 
     class Program
     {
@@ -19,11 +20,11 @@ namespace ParseListELB
             string targetDirectory = @"R:\ELBListing";
             IEnumerable<string> listElbOutputs = Directory.EnumerateFiles(targetDirectory, "*.txt");
 
-            ////Parallel.ForEach(listElbOutputs, listElbOutput =>
-            foreach (string listElbOutput in listElbOutputs)
+            Parallel.ForEach(listElbOutputs, listElbOutput =>
+            ////foreach (string listElbOutput in listElbOutputs)
             {
                 string outputFile = Path.ChangeExtension(listElbOutput, "xml");
-                var parsedELBDOM = ParseFromELBConsole.Parse(listElbOutput);
+                ELB parsedELBDOM = ParseFromELBConsole.Parse(listElbOutput);
 
                 XmlSerializer serializer = new XmlSerializer(typeof(ELB));
                 using (TextWriter writer = new StreamWriter(outputFile))
@@ -31,7 +32,7 @@ namespace ParseListELB
                     serializer.Serialize(writer, parsedELBDOM);
                 }
             }
-            ////);
+            );
         }
     }
 }

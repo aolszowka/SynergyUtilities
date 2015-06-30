@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!--**********************************************************************-->
+  <!--* MSBuild.Synergy.Tasks                                              *-->
+  <!--*   This file represents the available custom build tasks in the     *-->
+  <!--* MSBuild.Synergy assembly.                                          *-->
+  <!--**********************************************************************-->
+  <PropertyGroup>
+    <SynergyTasksAssembly>MSBuild.Synergy.dll</SynergyTasksAssembly>
+  </PropertyGroup>
+
+  <UsingTask TaskName="ConvertListElbOutputToXML" AssemblyFile="$(SynergyTasksAssembly)"/>
+
+  <UsingTask TaskName="FindDuplicateMethodsInELB" AssemblyFile="$(SynergyTasksAssembly)"/>
+
+  <UsingTask TaskName="ListElb" AssemblyFile="$(SynergyTasksAssembly)"/>
+</Project>
